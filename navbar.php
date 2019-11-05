@@ -26,7 +26,7 @@
                   <a href="login.php" class="nav-item nav-link">Login</a>
                  <a href="user.php" class="nav-item nav-link">Perfil</a>
                  <a href="#footer" class="nav-item nav-link">Contacto</a>
-
+                 <a href="crudproductos.php" class="btn btn-warning">CRUD Productos</a>
                  <?php endif ?>
 
 
