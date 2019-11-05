@@ -1,6 +1,6 @@
 # proyectoDH - Grupo 5 - Ecommerce de cuerdas.ba
 
-## Sprint 01
+## Sprint 03
 
 ### Integrantes del grupo
 
