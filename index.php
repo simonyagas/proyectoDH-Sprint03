@@ -1,7 +1,5 @@
 <?php
-require_once('controladores/funciones.php');
-require_once('helpers.php');
-require_once('controladores/mysql.php');
+require_once('loader.php');
 ?>
 
 <!-- Menu de navegacion -->
@@ -9,17 +7,17 @@ require_once('controladores/mysql.php');
   require_once('styles.php');
   ?>
 <!-- Menu de navegacion -->
-          <!-- Codigo de css -->
-          <link rel="stylesheet" href="./css/index.css">
-          <!-- Codigo de css -->
-     <title>Cuerdas.BA</title>
-    </head>
-     <body>
-     <!-- Menu de navegacion -->
-     <?php
-		require_once('navbar.php');
-	    ?>
-    <!-- Menu de navegacion -->
+<!-- Codigo de css -->
+ <link rel="stylesheet" href="./css/index.css">
+<!-- Codigo de css -->
+  <title>Cuerdas.BA</title>
+</head>
+<body>
+<!-- Menu de navegacion -->
+  <?php
+  require_once('navbar.php');
+  ?>
+<!-- Menu de navegacion -->
 
   <!-- Carrusel para pc -->
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

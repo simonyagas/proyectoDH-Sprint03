@@ -1,7 +1,5 @@
 <?php
-  //Esto debo hacerlo, para lograr que este programa logré visualizar las funciones creadas y de esa forma poder usarlas cuando desee.
-  require_once("controladores/funciones.php");
-  require_once("helpers.php");
+require_once('loader.php');
   if($_POST){
 
     $errores = validar($_POST,$_FILES);

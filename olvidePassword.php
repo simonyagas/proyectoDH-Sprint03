@@ -1,6 +1,5 @@
 <?php
-  require_once('controladores/funciones.php');
-  require_once('helpers.php');
+require_once('loader.php');
   if($_POST){
     $errores = validarLogin($_POST);
     if(count($errores)==0){

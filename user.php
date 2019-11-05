@@ -1,6 +1,5 @@
 <?php
-  require_once('controladores/funciones.php');
-  require_once('helpers.php');
+require_once('loader.php');
   //Esto lo incorporé, ya que por medio de esto logro hacer que si un usuario no está logueado en mi sistema y quiere entrar colocando la URL en el browser yo no se lo permito, hago que necesariamente se debe loguear
   if(!isset($_SESSION["email"])) {
     header("location:login.php");
