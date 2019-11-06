@@ -1,5 +1,7 @@
 <?php
+// <!-- Loader -->
 require_once('loader.php');
+// <!-- Loader -->
   if($_POST){
 
     $errores = validar($_POST,$_FILES);
@@ -13,11 +15,11 @@ require_once('loader.php');
    }
   }
 ?>
-<!-- Menu de navegacion -->
+<!-- Head de html -->
 <?php
   require_once('styles.php');
   ?>
-<!-- Menu de navegacion -->
+<!-- Head de html -->
           <!-- Codigo de css -->
           <link rel="stylesheet" href="css/register.css">
           <!-- Codigo de css -->

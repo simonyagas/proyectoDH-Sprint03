@@ -1,11 +1,13 @@
+<!-- Loader -->
 <?php
 require_once('loader.php');
 ?>
-<!-- Menu de navegacion -->
-<?php
+<!-- Loader -->
+<!-- Head de html -->
+  <?php
   require_once('styles.php');
   ?>
-<!-- Menu de navegacion -->
+<!-- Head de html -->
      <!-- Codigo de css -->
      <link rel="stylesheet" href="../css/faq.css">
      <!-- Codigo de css -->

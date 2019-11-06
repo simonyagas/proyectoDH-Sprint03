@@ -1,5 +1,7 @@
 <?php
+// <!-- Loader -->
 require_once('loader.php');
+// <!-- Loader -->
   if($_POST){
     $errores = validarLogin($_POST);
     if(count($errores)==0){
@@ -30,11 +32,11 @@ require_once('loader.php');
   }
 
 ?>
-<!-- Menu de navegacion -->
+<!-- Head de html -->
 <?php
   require_once('styles.php');
   ?>
-<!-- Menu de navegacion -->
+<!-- Head de html -->
       <!-- Codigo de css -->
       <link rel="stylesheet" href="css/login.css">
       <!-- Codigo de css -->

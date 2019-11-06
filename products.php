@@ -1,15 +1,13 @@
+<!-- Loader -->
 <?php
-
 require_once('loader.php');
-
-
 ?>
-<!-- Menu de navegacion -->
+<!-- Loader -->
+<!-- Head de html -->
 <?php
   require_once('styles.php');
   ?>
-<!-- Menu de navegacion -->
-
+<!-- Head de html -->
      <!-- Codigo de css -->
 	 <link rel="stylesheet" href="css/products.css">
 	 <!-- Codigo de css -->
