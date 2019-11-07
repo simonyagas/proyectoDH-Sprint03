@@ -9,7 +9,7 @@ require_once('loader.php');
   ?>
 <!-- Head de html -->
 <!-- Codigo de css -->
- <link rel="stylesheet" href="./css/index.css">
+ <link rel="stylesheet" href="./css/agregarProducto.css">
 <!-- Codigo de css -->
   <title>Agregar Productos</title>
 </head>
@@ -19,39 +19,37 @@ require_once('loader.php');
   require_once('navbar.php');
   ?>
 <!-- Menu de navegacion -->
-        <div class="spacer"></div>
-        <h2 class="text-center">Agregar Película</h2>
+
+        <h2 class="text-center">Agregar Producto <br> <ion-icon name="undo"></ion-icon></h2>
        <div class="row mt-5">
             <div class="col-lg-8 offset-lg-2">
                 <form action="" method="post" enctype="multipart/formdata">
                     <div class="form-group">
                         <label for="nombrePelicula">Nombre</label>
-                        <input type="text" class="form-control" name="title" id="nombrePelicula">
+                        <input type="text" class="form-control" name="nombre" id="nombreProducto">
                     </div>
                     <div class="form-group">
-                        <label for="ratingPelicula">Rating</label>
-                        <input type="number" class="form-control" name="rating" id="ratingPelicula">
+                        <label for="nombrePelicula">Imagen</label>
+                        <input type="text" class="form-control" name="imagen" id="imgProducto">
                     </div>
                     <div class="form-group">
-                        <label for="awards">Awards</label>
-                        <input type="number" class="form-control" name="awards" id="awards">
+                        <label for="awards">Descripción</label>
+                        <input type="text" class="form-control" name="descp" id="descripcionProducto">
                     </div>
                     <div class="form-group">
-                        <label for="release-date">Release Date</label>
-                        <input type="date" class="form-control" name="release_date" id="release-date">
+                        <label for="nombrePelicula">Precio nuevo</label>
+                        <input type="number" class="form-control" name="precion" id="precioNuevo">
                     </div>
                     <div class="form-group">
-                        <label for="duracionPelicula">Duración</label>
-                        <input type="number" class="form-control" name="length" id="duracionPelicula">
+                        <label for="nombrePelicula">Precio viejo</label>
+                        <input type="number" class="form-control" name="preciov" id="precioViejo">
                     </div>
-                    <div class="form-group">
-                        <label for="generos">Género de la Película</label>
-                        <select class="form-control" name="genre_id" id="generos">
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Registrar Película</button>
+
+                    <button type="submit" class="btn btn-primary">Registrar Producto</button>
+                    <br>
+                    <br>
                 </form>
-                <a href="index.php" class="btn btn-danger">Volver</a>
+                <a href="crudproductos.php" class="btn btn-dark">Volver</a>
             </div>
         </div>
 
@@ -59,5 +57,11 @@ require_once('loader.php');
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
+        <?php
+         require_once('footer.php');
+        ?>
+
+
     </body>
+
 </html>
