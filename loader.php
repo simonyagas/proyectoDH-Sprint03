@@ -1,6 +1,18 @@
 <?php
 require_once('controladores/funciones.php');
-require_once('arrayproductos.php');
+require_once('clases/consultaBase.php');
+require_once('clases/producto.php');
+require_once('clases/validarProducto.php');
+require_once('clases/mysql.php');
+require_once('clases/usuario.php');
+
+$bd = BaseMysqk::conexion();
+$consulta = new Consulta();
+$validar = new validarProducto();
+
+// de acaba para abajo para mi no va en POO en el loeader(nacho)
+
+
 
 //Esta función me ayuda para la persistencia de los datos en el formulario, sólo si los datos dispuestos por el usuario estan correctos, es decir si ese campo pasa nuestras validaciones
 function old($dato){

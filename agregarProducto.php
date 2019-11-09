@@ -1,6 +1,13 @@
 <!-- Loader -->
 <?php
 require_once('loader.php');
+if ($_POST) {
+  $producto = new Producto($_POST[$titulo], $_POST[$descp], $_POST[$precion],$_POST[$preciov], $_POST[$img]);
+  $errores = $validar->ValidadorProducto($producto);
+  if (count($errores)==0){
+     $consulta->guardarProducto($bd,'productos', $producto);
+  }
+}
 ?>
 <!-- Loader -->
 <!-- Head de html -->
@@ -23,6 +30,13 @@ require_once('loader.php');
         <h2 class="text-center">Agregar Producto <br> <ion-icon name="undo"></ion-icon></h2>
        <div class="row mt-5">
             <div class="col-lg-8 offset-lg-2">
+              <?php if(isset($errores)):?>
+              <ul class="alert alert-danger">
+                <?php foreach ($errores as $error) :?>
+                  <li><?=$error;?></li>
+                <?php endforeach;?>
+              </ul>
+            <?php endif; ?>
                 <form action="" method="post" enctype="multipart/formdata">
                     <div class="form-group">
                         <label for="nombrePelicula">Nombre</label>

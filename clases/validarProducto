@@ -1,0 +1,27 @@
+<?php
+new class validarProducto{
+  public function ValidadorProducto($producto){
+    $errores = [];
+    $titulo = trim($producto->getTitulo());
+    if (empty($titulo)){
+      $errores['titulo'] = "Falta el titulo";
+    }
+    $titulo = trim($descp->getDescp());
+    if (empty($descp)){
+      $errores['descp'] = "Falta la descripcion del producto";
+    }
+    $titulo = trim($precion->getPrecion());
+    if (empty($precion)){
+      $errores['precion'] = "Falta el precio del producto";
+    }
+    $titulo = trim($preciov->getPreciov());
+    if (empty($preciov)){
+      $errores['preciov'] = "Falta el precio viejo del procuto";
+    }
+    $titulo = trim($img->getImg());
+    if (empty($img)){
+      $errores['img'] = "Falta la imagen del producto";
+    }
+    return $errores;
+  }
+}
