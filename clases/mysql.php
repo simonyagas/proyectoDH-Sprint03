@@ -4,10 +4,11 @@ class BaseMysql{
         try {
             $dsn = "mysql:host=localhost;dbname=cuerdas_db;port=3306;charset=utf8mb4";
             $usuario = "root";
-            $password = "root";
+            $password = "";
             $bd = new PDO($dsn,$usuario,$password);
             return $bd;
-        
+            header('location:index.php');
+
         } catch (PDOException $error) {
             echo "<h2>No me pude conectar con la Base de Datos...<br></h2>".$error->getMessage();
             exit;

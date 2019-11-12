@@ -1,5 +1,5 @@
 <?php
-new class validarProducto{
+class validarProducto{
   public function ValidadorProducto($producto){
     $errores = [];
     $titulo = trim($producto->getTitulo());
