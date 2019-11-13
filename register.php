@@ -4,10 +4,13 @@ require_once('loader.php');
 // <!-- Loader -->
   if($_POST){
 
-    $errores = validar($_POST,$_FILES);
+    $usuario = new Usuario($_POST['userName'],$_POST['email'],$_POST['password'],$_POST['passwordRepeat'],$_FILES);
+
+
+    $errores = $validar->validarUsuario($usuario);
    if(count($errores)==0){
      $avatar = armarAvatar($_FILES);
-     $registro = armarRegistro($_POST,$avatar);
+
      guardarRegistro($registro);
 
      //De n o excistir errores en la información tipeada por el usuario entonces lo redirecciono a donde yo desee.

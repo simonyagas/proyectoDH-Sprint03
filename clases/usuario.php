@@ -4,12 +4,15 @@ class Usuario{
   private $email;
   private $password;
   private $role;
+  private $imagen;
+  private $passwordRepeat;
 
-  public function __construct($username,$email,$password,$role){
+  public function __construct($username,$email,$password,$passwordRepeat,$imagen){
     $this->username = $username;
     $this->email = $email;
     $this->password = $password;
-    $this->role = $role;
+    $this->imagen = $imagen;
+    $this->passwordRepeat = $passwordRepeat;
 
   }
 
@@ -24,9 +27,14 @@ class Usuario{
 public function getPassword(){
 return $this->password;
 }
-public function getRole(){
-return $this->role;
+
+public function getImagen(){
+return $this->imagen;
 }
+public function getPasswordRepeat(){
+return $this->passwordRepeat;
+}
+
   // Setters
 
     public function setUsername($username){
@@ -38,7 +46,12 @@ return $this->role;
 public function setPassword($password){
 $this->password = $password;
 }
-public function setRole($role){
-$this->role = $role;
+
+public function setImagen($imagen){
+$this->imagen = $imagen;
 }
+public function setPasswordRepeat(){
+return $this->passwordRepeat = $passwordRepeat;
+}
+
 }

@@ -19,4 +19,15 @@ class Consulta{
      $query->execute();
      header('location:index.php');
    }
+   public function guardarUsuario($bd,$usuarios, $usuario){
+    $sql = "inser into $usuarios (username,email,password,passwordRepeat,imagen)";
+    $query = $bd->prepare($sql);
+    $query->bindValue(':username',$username->getUsername());
+    $query->bindValue(':email',$email->getEmail());
+    $query->bindValue(':password',$password->getPassword());
+    $query->bindValue(':passwordRepeat',$passwordRepeat->getPasswordRepeat());
+    $query->bindValue(':imagen',$imagen->getImagen());
+    $query->execute();
+    header('location:index.php');
+  }
 }

@@ -2,15 +2,14 @@
 class Producto{
   private $titulo;
   private $descp;
-  private $precion;
+  private $precio;
   private $preciov;
   private $img;
 
-  public function __construct($titulo, $descp, $precion,$preciov, $img){
+  public function __construct($titulo, $descp, $precio, $img){
     $this->titulo = $titulo;
     $this->descp = $descp;
-    $this->precion = $precion;
-    $this->preciov = $preiov;
+    $this->precion = $precio;
     $this->img = $img;
   }
 
@@ -22,11 +21,8 @@ class Producto{
   public function getDescp(){
     return $this->descp;
   }
-  public function getPrecion(){
-    return $this->precion;
-  }
-  public function getPreciov(){
-    return $this->preciov;
+  public function getPrecio(){
+    return $this->precio;
   }
     public function getImg(){
     return $this->img;
@@ -40,10 +36,7 @@ class Producto{
   public function setDescp($descp){
     $this->titulo = $titulo;
   }
-  public function setPrecion($precion){
-    $this->titulo = $titulo;
-  }
-  public function setPreciov($preciov){
+  public function setPrecio($precio){
     $this->titulo = $titulo;
   }
     public function setImg($img){

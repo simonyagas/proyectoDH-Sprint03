@@ -2,13 +2,15 @@
 require_once('controladores/funciones.php');
 require_once('clases/consultaBase.php');
 require_once('clases/producto.php');
-require_once('clases/validarProducto.php');
+require_once('clases/Validador.php');
 require_once('clases/mysql.php');
 require_once('clases/usuario.php');
 
 $bd = BaseMysql::conexion();
+
 $consulta = new Consulta();
-$validar = new validarProducto();
+$validar = new Validador();
+
 
 // de acaba para abajo para mi no va en POO en el loeader(nacho)
 
