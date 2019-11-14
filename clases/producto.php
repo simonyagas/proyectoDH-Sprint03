@@ -3,13 +3,12 @@ class Producto{
   private $titulo;
   private $descp;
   private $precio;
-  private $preciov;
   private $img;
 
   public function __construct($titulo, $descp, $precio, $img){
     $this->titulo = $titulo;
     $this->descp = $descp;
-    $this->precion = $precio;
+    $this->precio = $precio;
     $this->img = $img;
   }
 

@@ -9,24 +9,26 @@ class Consulta{
     }
       // no entiendo que es la variable $products que dani programo como $movies, es el nombre de la tabla de la base de datos?(nacho)
     public function guardarProducto($bd,$productos, $producto){
-     $sql = "inser into $productos (titulo, descp, precion,preciov, img) values (:titulo,:descp,:precion,:preciov,:img)";
+     $sql = "insert into $productos (titulo, precio, descp, img) values (:titulo,:precio,:descp,:img)";
      $query = $bd->prepare($sql);
      $query->bindValue(':titulo',$producto->getTitulo());
+     $query->bindValue(':precio',$producto->getPrecio());
      $query->bindValue(':descp',$producto->getDescp());
-     $query->bindValue(':precion',$producto->getPrecion());
-     $query->bindValue(':preciov',$producto->getPreciov());
      $query->bindValue(':img',$producto->getImg());
      $query->execute();
      header('location:index.php');
    }
-   public function guardarUsuario($bd,$usuarios, $usuario){
-    $sql = "inser into $usuarios (username,email,password,passwordRepeat,imagen)";
+   public function guardarUsuario($bd,$usuarios, $usuario,$avatar){
+
+    $sql = "insert into $usuarios (usuario,email,password,avatar,role) value(:usuario,:email,:password,:avatar,:role)";
     $query = $bd->prepare($sql);
-    $query->bindValue(':username',$username->getUsername());
-    $query->bindValue(':email',$email->getEmail());
-    $query->bindValue(':password',$password->getPassword());
-    $query->bindValue(':passwordRepeat',$passwordRepeat->getPasswordRepeat());
-    $query->bindValue(':imagen',$imagen->getImagen());
+
+    $query->bindValue(':usuario',$usuario->getUsername());
+    $query->bindValue(':email',$usuario->getEmail());
+    $query->bindValue(':password',$usuario->getPassword());
+    $query->bindValue(':avatar',$avatar);
+    $query->bindValue(':role',1);
+    
     $query->execute();
     header('location:index.php');
   }

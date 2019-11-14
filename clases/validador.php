@@ -42,6 +42,7 @@ class Validador{
     if($password != $passwordRepeat){
         $errores['passwordRepeat']="Pusiste 2 contraseñas diferentes, chekealo";
     }
+          $password = Encriptador::hashPassword($usuario->getPassword(),PASSWORD_DEFAULT),
     if(isset($_FILES)){
         $avatar= $usuario->getImagen();
          //dd($avatar['avatar']['name']);
