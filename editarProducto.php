@@ -1,13 +1,23 @@
 <!-- Loader -->
 <?php
 require_once('loader.php');
-?>
-<!-- Loader -->
-<!-- Head de html -->
-  <?php
   require_once('styles.php');
+
+if($_POST){
+    //Esto se ejecuta univcamente cuando el usuario acciona el boton de Actualizar Película
+    $producto = new Producto($_POST['titulo'],$_POST['descp'],$_POST['precio'],$_POST['img']);
+    $errores = $validar->ValidadorProducto($producto);
+    //Les recuerdo que el método de validación de errores no está completo, sería bueno que ustdes culminen la validación de todos los campos
+
+    if(count($errores) == 0){
+      $consulta->editarProducto($bd,'productos',$producto,$_GET['id']);
+    }
+  }
+
+
   ?>
-<!-- Head de html -->
+
+<head><!-- Head de html -->
 <!-- Codigo de css -->
  <link rel="stylesheet" href="./css/editarProducto.css">
 <!-- Codigo de css -->
@@ -26,25 +36,21 @@ require_once('loader.php');
                 <form action="" method="post" enctype="multipart/formdata">
                     <div class="form-group">
                         <label for="nombrePelicula">Nombre</label>
-                        <input type="text" class="form-control" name="nombre" id="nombreProducto">
+                        <input type="text" class="form-control" name="nombre" id="nombreProducto" value="<?= $productos['titulo']; ?>">
                     </div>
-                    <div class="form-group">
-                        <label for="nombrePelicula">Imagen</label>
-                        <input type="text" class="form-control" name="imagen" id="imgProducto">
-                    </div>
+
                     <div class="form-group">
                         <label for="awards">Descripción</label>
-                        <input type="text" class="form-control" name="descp" id="descripcionProducto">
+                        <input type="text" class="form-control" name="descp" id="descripcionProducto" value="<?= $productos['descp']>
                     </div>
                     <div class="form-group">
                         <label for="nombrePelicula">Precio nuevo</label>
-                        <input type="number" class="form-control" name="precion" id="precioNuevo">
+                        <input type="number" class="form-control" name="precio" id="precio" value="<?= $productos['precio']>
                     </div>
                     <div class="form-group">
-                        <label for="nombrePelicula">Precio viejo</label>
-                        <input type="number" class="form-control" name="preciov" id="precioViejo">
+                        <label for="nombrePelicula">Imagen</label>
+                        <input type="text" class="form-control" name="imagen" id="imgProducto" value="<?= $productos['img']>
                     </div>
-
                     <button type="submit" class="btn btn-primary">Editar Producto</button>
                     <br>
                     <br>
