@@ -52,7 +52,7 @@ if ($_POST) {
                     </div>
                     <div class="form-group">
                         <label for="nombrePelicula">Precio</label>
-                        <input type="number" class="form-control" name="precion" id="precio">
+                        <input type="number" class="form-control" name="precio" id="precio">
                     </div>
                   
 
