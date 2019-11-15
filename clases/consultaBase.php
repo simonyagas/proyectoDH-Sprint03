@@ -43,7 +43,7 @@ class Consulta{
   }
    public function buscarRole($bd,$usuarios,$usuario){
 
-$sql="select role from usuarios WHERE usuario like $usuario->getUsername";
+$sql="select role from usuarios WHERE usuario like $usuario->getUsername()";
    $query=$bd->prepare($sql);
 $query->execute();
    }
