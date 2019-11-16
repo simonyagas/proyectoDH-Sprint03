@@ -2,7 +2,9 @@
 <?php
 require_once('loader.php');
 if ($_POST) {
+
   $producto = new Producto($_POST['titulo'], $_POST['descp'], $_POST['precio'],$_POST['img']);
+
   $errores = $validar->ValidadorProducto($producto);
   if (count($errores)==0){
      $consulta->guardarProducto($bd,'productos', $producto);
