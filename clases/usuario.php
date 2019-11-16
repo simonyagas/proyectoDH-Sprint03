@@ -21,6 +21,9 @@ class Usuario{
     public function getUsername(){
     return $this->username;
   }
+  public function getRole(){
+  return $this->role;
+}
   public function getEmail(){
   return $this->email;
 }

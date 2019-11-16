@@ -1,5 +1,8 @@
 <!-- Menu de navegacion -->
+<?php require_once('loader.php')
 
+
+?>
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
          <a href="index.php" class="navbar-brand">
              <img src="./img/logo.png" height="28" alt="CoolBrand">
@@ -10,7 +13,16 @@
 
          <div class="collapse navbar-collapse" id="navbarCollapse">
              <div class="navbar-nav">
-               <?php if (isset($_SESSION['email'])): ?>
+               <?php if (isset($_SESSION['email']) && $_SESSION['nombre']=="juanito"):  ?>
+                   <a href="index.php" class="nav-item nav-link active">Home</a>
+                 <a href="products.php" class="nav-item nav-link">Productos</a>
+                 <a href="faq.php" class="nav-item nav-link">FAQ</a>
+                 <a href="user.php" class="nav-item nav-link">Perfil</a>
+                 <a href="#footer" class="nav-item nav-link">Contacto</a>
+                 <a href="user.php" class="nav-item nav-link text-danger font-weight-bolder">Hola Administrador <?=$_SESSION['nombre'] ?></a>
+                 <a href="sessiondestroy.php" class="nav-item nav-link">Cerrar sesion</a>
+                 <a href="crudproductos.php" class="btn btn-warning">CRUD Productos</a>
+               <?php  elseif (isset($_SESSION['email'])): ?>
                  <a href="index.php" class="nav-item nav-link active">Home</a>
                  <a href="products.php" class="nav-item nav-link">Productos</a>
                  <a href="faq.php" class="nav-item nav-link">FAQ</a>
@@ -18,8 +30,8 @@
                  <a href="#footer" class="nav-item nav-link">Contacto</a>
                  <a href="sessiondestroy.php" class="nav-item nav-link">Cerrar sesion</a>
                  <a href="user.php" class="nav-item nav-link text-danger font-weight-bolder">Hola <?=$_SESSION['nombre']?></a>
-                
-                <?php else: ?>
+
+               <?php else: ?>
                   <a href="index.php" class="nav-item nav-link active">Home</a>
                   <a href="products.php" class="nav-item nav-link">Productos</a>
                   <a href="faq.php" class="nav-item nav-link">FAQ</a>
@@ -27,7 +39,7 @@
                   <a href="login.php" class="nav-item nav-link">Login</a>
                  <a href="user.php" class="nav-item nav-link">Perfil</a>
                  <a href="#footer" class="nav-item nav-link">Contacto</a>
-                 <a href="crudproductos.php" class="btn btn-warning">CRUD Productos</a>
+
                  <?php endif ?>
 
 

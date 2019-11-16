@@ -1,4 +1,5 @@
 <?php
+require_once('loader.php');
 class Consulta{
     public function listarProductos($productos,$bd){
         $sql = "select * from $productos";
@@ -8,6 +9,16 @@ class Consulta{
         return $productos;
     }
 
+    public function buscarProducto($bd,$productos,$busqueda){
+      $sql = "select * from $productos where title like :busqueda";
+      $query = $bd->prepare($sql);
+      $query->bindValue(':busqueda',"%".$busqueda."%");
+      $query->execute();
+      $producto = $query->fetchAll(PDO::FETCH_ASSOC);
+      return $producto;
+  }
+
+
     public function ValidadorProducto($producto){
         $errores = [];
         $titulo = trim($producto->getTitulo());
@@ -16,6 +27,7 @@ class Consulta{
         }
         return $errores;
     }
+
 
 
       // no entiendo que es la variable $products que dani programo como $movies, es el nombre de la tabla de la base de datos?(nacho)
@@ -78,4 +90,12 @@ class Consulta{
     $query->execute();
     header('location:index.php');
   }
+   public function buscarRole($bd,$usuarios,$usuario){
+
+$sql="select role from usuarios WHERE usuario like $usuario->getUsername()";
+   $query=$bd->prepare($sql);
+$query->execute();
+   }
+
+
 }

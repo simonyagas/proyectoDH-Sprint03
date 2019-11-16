@@ -2,7 +2,9 @@
 <?php
 require_once('loader.php');
 if ($_POST) {
-  $producto = new Producto($_POST[$titulo], $_POST[$descp], $_POST[$precio],$_POST[$img]);
+
+  $producto = new Producto($_POST['titulo'], $_POST['descp'], $_POST['precio'],$_POST['img']);
+
   $errores = $validar->ValidadorProducto($producto);
   if (count($errores)==0){
      $consulta->guardarProducto($bd,'productos', $producto);
@@ -42,22 +44,19 @@ if ($_POST) {
                         <label for="nombrePelicula">Nombre</label>
                         <input type="text" class="form-control" name="nombre" id="nombreProducto">
                     </div>
-                    <div class="form-group">
-                        <label for="nombrePelicula">Imagen</label>
-                        <input type="text" class="form-control" name="imagen" id="imgProducto">
+                    <div class="form-label-group">
+                      <label for="avatar">Avatar</label> <br> <br>
+                      <input required name="avatar" type="file" value= "" class="form-control" id="avatar" >
                     </div>
                     <div class="form-group">
                         <label for="awards">Descripción</label>
                         <input type="text" class="form-control" name="descp" id="descripcionProducto">
                     </div>
                     <div class="form-group">
-                        <label for="nombrePelicula">Precio nuevo</label>
-                        <input type="number" class="form-control" name="precion" id="precioNuevo">
+                        <label for="nombrePelicula">Precio</label>
+                        <input type="number" class="form-control" name="precio" id="precio">
                     </div>
-                    <div class="form-group">
-                        <label for="nombrePelicula">Precio viejo</label>
-                        <input type="number" class="form-control" name="preciov" id="precioViejo">
-                    </div>
+                  
 
                     <button type="submit" class="btn btn-primary">Registrar Producto</button>
                     <br>

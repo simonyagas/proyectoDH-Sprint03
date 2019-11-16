@@ -5,6 +5,7 @@ require_once('clases/producto.php');
 require_once('clases/validador.php');
 require_once('clases/mysql.php');
 require_once('clases/usuario.php');
+require_once('clases/encriptador');
 
 $bd = BaseMysql::conexion();
 
