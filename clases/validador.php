@@ -70,4 +70,27 @@ class Validador{
 
     return $errores;
     }
+    //Esta función se encarga de validad los datos que el usuario coloca en el formulario de Login
+    public function validarLogin($usuario){
+        $errores=[];
+        $email = trim($usuario->getEmail());
+        if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+            $errores['email']="Email inválido...";
+        }
+        $password = trim($usuario->getPassword());
+        if(empty($password)){
+            $errores['password']="El password no puede ser blanco...";
+        }elseif (!is_numeric($password)) {
+            $errores['password']="El password debe ser numérico...";
+        }elseif (strlen($password)<6) {
+            $errores['password']="El password como mínimo debe tener 6 caracteres...";
+        }
+        return $errores;
   }
+  public function verificarPassword($password, $passwordHash){
+    return password_verify($password,$passwordHash);
+  }
+  public function seteoSesion($user){
+    $_SESSION[""]
+  }
+}

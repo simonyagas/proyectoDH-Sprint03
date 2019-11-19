@@ -4,8 +4,7 @@ require_once('loader.php');
 // <!-- Loader -->
   if($_POST){
 
-    $usuario = new Usuario($_POST['userName'],$_POST['email'],$_POST['password'],$_POST['passwordRepeat'],$_FILES);
-
+    $usuario = new Usuario($_POST['email'],$_POST['password'],$_POST['username'],$_POST['passwordRepeat'],$_FILES);
 
 
     $errores = $validar->validarUsuario($usuario);
@@ -14,7 +13,7 @@ require_once('loader.php');
      $avatar = armarAvatar($_FILES);
 
      $consulta->guardarUsuario($bd,'usuarios', $usuario,$avatar);
-     
+
      //De n o excistir errores en la información tipeada por el usuario entonces lo redirecciono a donde yo desee.
      header("location:login.php");
    }

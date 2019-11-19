@@ -7,7 +7,7 @@ class Usuario{
   private $imagen;
   private $passwordRepeat;
 
-  public function __construct($username,$email,$password,$passwordRepeat,$imagen){
+  public function __construct($email,$password,$username = null,$passwordRepeat = null ,$imagen = null){
     $this->username = $username;
     $this->email = $email;
     $this->password = $password;

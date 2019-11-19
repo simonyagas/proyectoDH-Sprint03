@@ -1,7 +1,7 @@
 <?php
 require_once('loader.php');
 class Consulta{
-    
+
     public function listarProductos($productos,$bd){
         $sql = "select * from $productos";
         $query = $bd->prepare($sql);
@@ -30,13 +30,13 @@ class Consulta{
    }
 
    //Este es el método que controla la busqueda de las productos
-    public function buscarProducto($bd,$tabla,$busqueda){
+    public function buscarProducto($bd,$productos,$busqueda){
         $sql = "select * from $productos where title like :busqueda";
         $query = $bd->prepare($sql);
         $query->bindValue(':busqueda',"%".$busqueda."%");
         $query->execute();
         $productos = $query->fetchAll(PDO::FETCH_ASSOC);
-        return $producto;
+        return $productos;
     }
     //Este método controla el borrado de la productos que el usuario selecione
     public function borrarProducto($bd,$productos,$id){
@@ -78,6 +78,14 @@ $sql="select role from usuarios WHERE usuario like $usuario->getUsername()";
    $query=$bd->prepare($sql);
 $query->execute();
    }
+   public function buscarPorEmail($email, $pdo,$tabla){
+       $sql = "select * from $tabla where email =:email";
+       $query = $pdo->prepare($sql);
+       $query -> bindValue(':email', $email);
+       $query->execute();
+       $usuario = $query->fetch(PDO::FETCH_ASSOC);
+       return $usuario;
 
+   }
 
 }
