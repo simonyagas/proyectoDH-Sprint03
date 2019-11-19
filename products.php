@@ -28,17 +28,18 @@ require_once('navbar.php');
 <br><br><br>
   <div class="container">
 
-<br>  <h2 class="text-center">Nuestros productos <a href="http://bootstrap-ecommerce.com/"></a></h2>
+<br>  
+<h2 class="text-center">Nuestros productos <a href="#"></a></h2>
 <hr>
 
 <table class="table">
         <thead>
           <tr>
             <th>Id</th>
-            <th>Nombre</th>
-            <th>Ver</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
+            <th>titulo</th>
+            <th>precio</th>
+            <th>descripcion</th>
+            <th>img</th>
           </tr>
         </thead>
         <tbody>
@@ -46,12 +47,9 @@ require_once('navbar.php');
             <tr>
               <td><?=$value['id'];?></td>
               <td><?=$value['titulo'];?></td>
-			  <td><?=$value['precio'];?></td>
-			  <td><?=$value['descp'];?></td>
-			  <td><?=$value['img'];?></td>
-              <!-- <td><a href="detallePelicula.php?id=<?=$value['id'];?>"><ion-icon name="eye"></ion-icon></a></td>
-              <td><a href="editarPelicula.php?id=<?=$value['id'];?>"><ion-icon name="create"></ion-icon></a></td>
-              <td><a href="borrarPelicula.php?id=<?=$value['id'];?>"><ion-icon name="trash"></ion-icon></td></a> -->
+			        <td><?=$value['precio'];?></td>
+			        <td><?=$value['descp'];?></td>
+			        <td><?=$value['img'];?></td>
             </tr>
 
           <?php endforeach;?>

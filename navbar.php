@@ -1,7 +1,7 @@
 <!-- Menu de navegacion -->
-<?php require_once('loader.php')
+<?php require_once('loader.php');
 
-
+    $productos = $consulta->buscarProducto($bd,'productos',$_GET['busqueda']);
 ?>
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
          <a href="index.php" class="navbar-brand">
@@ -44,8 +44,10 @@
 
 
              </div>
-             <form class="form-inline ml-auto">
-                 <input type="text" class="form-control mr-sm-2" placeholder="Buscar">
+
+             <!--Este es formulario para que el usuario busque producto que desee-->
+             <form class="form-inline ml-auto" action="" method="get">
+                 <input type="text" class="form-control mr-sm-2" name="busqueda" placeholder="Buscar">
                  <button type="submit" class="btn btn-outline-light">dale!</button>
              </form>
          </div>
