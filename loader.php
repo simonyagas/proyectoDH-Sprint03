@@ -12,7 +12,6 @@ $bd = BaseMysql::conexion();
 $consulta = new Consulta();
 $validar = new Validador();
 
-
 // de acaba para abajo para mi no va en POO en el loeader(nacho)
 
 

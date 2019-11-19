@@ -4,7 +4,7 @@ class BaseMysql{
         try {
             $dsn = "mysql:host=localhost;dbname=cuerdas_db;port=3306;charset=utf8mb4";
             $usuario = "root";
-            $password = "";
+            $password = "password";
             $bd = new PDO($dsn,$usuario,$password);
             return $bd;
             header('location:index.php');

@@ -1,6 +1,7 @@
 <?php
 require_once('loader.php');
 class Consulta{
+    
     public function listarProductos($productos,$bd){
         $sql = "select * from $productos";
         $query = $bd->prepare($sql);
