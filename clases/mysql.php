@@ -6,6 +6,7 @@ class BaseMysql{
             $usuario = "root";
             $password = "";
             $bd = new PDO($dsn,$usuario,$password);
+            $bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $bd;
             header('location:index.php');
 

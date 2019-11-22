@@ -1,76 +1,63 @@
-<!-- Loader -->
+
 <?php
 require_once('loader.php');
-require_once('arrayproductos.php');
-  require_once('styles.php');
-require_once('navbar.php');
+if ($_GET && !empty(trim('busqueda'))){
+    $productos = $consulta->buscarProductos($bd,'productos',$_GET['busqueda']);
+  }else{
+    $productos = $consulta->listarProductos($bd,'productos');
+  }
 
-
-if ($_GET){
-  $peliculas = $consulta->listarProductos($bd,'productos');
-}
 ?>
 <!-- Loader -->
 <!-- Head de html -->
-
+<?php
+require_once('styles.php');
+?>
 <!-- Head de html -->
-
      <!-- Codigo de css -->
-	 <link rel="stylesheet" href="css/crudproducts.css">
+	 <link rel="stylesheet" href="css/products.css">
+	 <!-- Codigo de css -->
     <title>Productos de la tienda</title>
 </head>
 <body>
-     <!-- Menu de navegacion -->
-
-    <!-- Menu de navegacion -->
+<!-- Menu de navegacion -->
+     <?php
+require_once('navbar.php');
+?>
+<!-- Menu de navegacion -->
 <br><br><br>
   <div class="container">
 
-<br>  <h2 class="text-center">Edición de Productos <a href="http://bootstrap-ecommerce.com/"><ion-icon name="construct"></ion-icon></a></h2>
+<br>
+<h2 class="text-center">Nuestros productos <a href="#"></a></h2>
 <hr>
 
-<h3>Agregar Producto <a href="agregarProducto.php"><ion-icon name="add"></ion-icon></a> </h3>
-  <tbody>
+<table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>titulo</th>
+            <th>precio</th>
+            <th>descripcion</th>
+            <th>img</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($productos as $key => $value) :?>
+            <tr>
+              <td><?=$value['id'];?></td>
+              <td><?=$value['titulo'];?></td>
+			        <td><?=$value['precio'];?></td>
+			        <td><?=$value['descp'];?></td>
+			        <td><?=$value['img'];?></td>
+            </tr>
 
+          <?php endforeach;?>
+          <tr>
 
-
-
-
-   <tr>
-
-     <div class="row">
-       <?php foreach ($productos as $key => $value):?>
-     <div class="col-md-4">
-     	<figure class="card card-product">
-     		<div class="img-wrap"><img src="img/<?=$value["imagen"];?>"/></div>
-     		<figcaption class="info-wrap">
-     				<h4 class="title"> <a href="productos.php" class="nav-item nav-link"><?=$value["titulo"];?></a></h4>
-     				<p class="desc"><?=$value["descp"];?></p>
-     				<div class="rating-wrap">
-     					<div class="label-rating"><?=$value["rating"][0];?></div>
-     					<div class="label-rating"><?=$value["rating"][1];?></div>
-     				</div> <!-- rating-wrap.// -->
-     		</figcaption>
-     		<div class="bottom-wrap">
-     			<div class="price-wrap h5">
-     				<span class="price-new"><?=$value["pricenew"];?></span> <del class="price-old"><?=$value["priceold"];?></del>
-     			</div> <!-- price-wrap.// -->
-           <div class="crud">
-             <a href="editarProducto.php"><ion-icon name="create"></ion-icon></a>
-             <a href=""><ion-icon name="trash"></ion-icon></a>
-           </div>
-     		</div> <!-- bottom-wrap.// -->
-     	</figure>
-     </div> <!-- col // -->
-     <?php endforeach ?>
-     </div> <!-- row.// -->
-
-
-</tbody>
-
-
-</div>
-<!--container.//-->
+          </tr>
+        </tbody>
+      </table>
 
 <br><br><br>
 <!-- Footer -->

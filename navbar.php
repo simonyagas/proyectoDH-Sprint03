@@ -1,7 +1,9 @@
 <!-- Menu de navegacion -->
 <?php require_once('loader.php');
 
+  if (isset($_GET['busqueda'])) {
     $productos = $consulta->buscarProducto($bd,'productos',$_GET['busqueda']);
+  }
 ?>
 <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
          <a href="index.php" class="navbar-brand">
@@ -13,15 +15,16 @@
 
          <div class="collapse navbar-collapse" id="navbarCollapse">
              <div class="navbar-nav">
-               <?php if (isset($_SESSION['email']) && $_SESSION['nombre']=="juanito"):  ?>
+            <?php if($_SESSION):?>
+               <?php if ( $_SESSION['role'] == 2):  ?>
                    <a href="index.php" class="nav-item nav-link active">Home</a>
                  <a href="products.php" class="nav-item nav-link">Productos</a>
                  <a href="faq.php" class="nav-item nav-link">FAQ</a>
                  <a href="user.php" class="nav-item nav-link">Perfil</a>
                  <a href="#footer" class="nav-item nav-link">Contacto</a>
-                 <a href="user.php" class="nav-item nav-link text-danger font-weight-bolder">Hola Administrador <?=$_SESSION['nombre'] ?></a>
-                 <a href="sessiondestroy.php" class="nav-item nav-link">Cerrar sesion</a>
+                 <a href="user.php" class="nav-item nav-link text-danger font-weight-bolder">Hola Administrador <?=$_SESSION['usuario'] ?></a>
                  <a href="crudproductos.php" class="btn btn-warning">CRUD Productos</a>
+                 <a href="sessiondestroy.php" class="nav-item nav-link">Cerrar sesion</a>
                <?php  elseif (isset($_SESSION['email'])): ?>
                  <a href="index.php" class="nav-item nav-link active">Home</a>
                  <a href="products.php" class="nav-item nav-link">Productos</a>
@@ -29,9 +32,11 @@
                  <a href="user.php" class="nav-item nav-link">Perfil</a>
                  <a href="#footer" class="nav-item nav-link">Contacto</a>
                  <a href="sessiondestroy.php" class="nav-item nav-link">Cerrar sesion</a>
-                 <a href="user.php" class="nav-item nav-link text-danger font-weight-bolder">Hola <?=$_SESSION['nombre']?></a>
+                 <a href="user.php" class="nav-item nav-link text-danger font-weight-bolder">Hola <?=$_SESSION['usuario']?></a>
+               <?php endif;?>
+             <?php else :?>
 
-               <?php else: ?>
+
                   <a href="index.php" class="nav-item nav-link active">Home</a>
                   <a href="products.php" class="nav-item nav-link">Productos</a>
                   <a href="faq.php" class="nav-item nav-link">FAQ</a>
@@ -40,7 +45,7 @@
                  <a href="user.php" class="nav-item nav-link">Perfil</a>
                  <a href="#footer" class="nav-item nav-link">Contacto</a>
 
-                 <?php endif ?>
+             <?php endif ?>
 
 
              </div>

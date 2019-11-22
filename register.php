@@ -57,11 +57,12 @@ require_once('loader.php');
 
             <div class="form-label-group">
 
-            <input name="userName" type="text" id="inputUserame" value= "<?=isset($errores['username'])? "":old('userName') ;?>" class="form-control" id="userName" placeholder="Nombre de usuario" required autofocus >
+            <input name="username" type="text" id="inputUserame" value= "<?=isset($errores['username'])? "":old('username') ;?>" class="form-control" id="userName" placeholder="Nombre de usuario" required autofocus >
+            <label for="userName">Nombre de usuario</label>
             <div>
                 <!--Aquí les comparto este otro código donde pueden mostrar el error en el mismo lugar donde se produjo, usted decide como desea mostrar los errores-->
-                <?php if(isset($errores['userName'])):?>
-                  <h6 class="text-danger"><?= $errores['userName'];?></h6>
+                <?php if(isset($errores['username'])):?>
+                  <h6 class="text-danger"><?= $errores['username'];?></h6>
                 <?php endif;?>
               </div>
 

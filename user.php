@@ -39,7 +39,7 @@ require_once('loader.php');
 
     <div class="col-md-6">
       <div class="profile-head">
-          <h5><?=$_SESSION['nombre']?></h5>
+          <h5><?=$_SESSION['usuario']?></h5>
           <h6>Usuario Cuerdas BA </h6>
 
           <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -70,7 +70,7 @@ require_once('loader.php');
               <label>Usuario</label>
             </div>
     <div class="col-md-6">
-      <p><?=$_SESSION['nombre']?></p>
+      <p><?=$_SESSION['usuario']?></p>
     </div>
           </div>
     <div class="row">

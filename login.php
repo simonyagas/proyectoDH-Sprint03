@@ -6,29 +6,33 @@ require_once('loader.php');
   if($_POST){
     $usuario = New Usuario($_POST['email'],$_POST['password']);
     $errores = $validar->validarLogin($usuario);
-    if(count($errores)==0){
+
+    if(empty($errores)){
       $usuarioEncontrado = $consulta->buscarPorEmail($usuario->getEmail(), $bd,'usuarios');
-      if($usuarioEncontrado ==false){
+
+      if(!$usuarioEncontrado){
         $errores['email']="Usuario no encontrado...";
-      }else{
+      } else {
         //Desde aquí incio mi revisión a ver que ocurre con los contenidos de las variables y tratar de ver que ocurre
         //Aquí ví que el dato viene bien, es decir el password hasheado
         //dd($usuario['password']);
         //Ahora veo que trae esta variable  y noto que trae el dato correctamente
         //dd($_POST['password']);
         //Aquí estaba el error a la función password_verify, se le debe psar primero el dato no hasheado y luego el hasheado, ese fue mi error, lo habia pasado al contrario
-        if($validar->verificarPassword($usuario->getPassword(),$usuarioEncontrado["password"]) !=true){
+        if ($validar->verificarPassword($usuario->getPassword(),$usuarioEncontrado["password"]) !=true){
           $errores['password']="Datos inválidos...";
         }else{
           $validar->seteoSesion($usuarioEncontrado);
+
           if(isset($_POST["recordar"])){
             $validar->seteoCokie($usuarioEncontrado);
           }
-          if($validar->validarUsuario())
-            redirect("user.php");
-            else {
-              redirect("register.php");
-            }
+
+          // if($validar->validarUsuario())
+            header("location: user.php");
+          //  else {
+          //    redirect("register.php");
+          //  }
           }
         }
       }

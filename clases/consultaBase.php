@@ -2,7 +2,7 @@
 require_once('loader.php');
 class Consulta{
 
-    public function listarProductos($productos,$bd){
+    public function listarProductos($bd,$productos){
         $sql = "select * from $productos";
         $query = $bd->prepare($sql);
         $query->execute();
@@ -65,7 +65,8 @@ class Consulta{
 
     $query->bindValue(':usuario',$usuario->getUsername());
     $query->bindValue(':email',$usuario->getEmail());
-    $query->bindValue(':password',$usuario->getPassword());
+    $query->bindValue(':password',Encriptador::hashPassword($usuario->getPassword(),PASSWORD_DEFAULT));
+
     $query->bindValue(':avatar',$avatar);
     $query->bindValue(':role',1);
 
@@ -74,10 +75,11 @@ class Consulta{
   }
    public function buscarRole($bd,$usuarios,$usuario){
 
-$sql="select role from usuarios WHERE usuario like $usuario->getUsername()";
-   $query=$bd->prepare($sql);
-$query->execute();
-   }
+     $sql="select role from usuarios WHERE usuario like $usuario->getEmail()";
+
+     $query=$bd->prepare($sql);
+      $query->execute();
+  }
    public function buscarPorEmail($email, $pdo,$tabla){
        $sql = "select * from $tabla where email =:email";
        $query = $pdo->prepare($sql);
@@ -85,7 +87,7 @@ $query->execute();
        $query->execute();
        $usuario = $query->fetch(PDO::FETCH_ASSOC);
        return $usuario;
-
-   }
+       dd($usuario);
+  }
 
 }

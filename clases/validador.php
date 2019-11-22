@@ -2,6 +2,7 @@
 
 require_once('loader.php');
 
+
 class Validador{
   public function ValidadorProducto($producto){
     $errores = [];
@@ -53,7 +54,10 @@ class Validador{
     if($password != $passwordRepeat){
         $errores['passwordRepeat']="Pusiste 2 contraseñas diferentes, chequealo";
     }
-          $password = Encriptador::hashPassword($usuario->getPassword(),PASSWORD_DEFAULT);
+
+
+          
+
     if(isset($_FILES)){
         $avatar= $usuario->getImagen();
          //dd($avatar['avatar']['name']);
@@ -87,10 +91,19 @@ class Validador{
         }
         return $errores;
   }
-  public function verificarPassword($password, $passwordHash){
-    return password_verify($password,$passwordHash);
+     public function verificarPassword($password, $passwordHash){
+       return $password == $passwordHash;
+
+//    return password_verify($password,$passwordHash);
   }
-  public function seteoSesion($user){
-    $_SESSION[""]
-  }
+     public function seteoSesion($user){
+       $_SESSION["usuario"]=$user["username"];
+        $_SESSION["email"] = $user["email"];
+        $_SESSION["role"]= $user["role"];
+        $_SESSION["avatar"]= $user["avatar"];
+    }
+    public function seteoCookie($user){
+           setcookie("email",$dato["email"],time()+3600);
+           setcookie("password",$dato["password"],time()+3600);
+   }
 }
